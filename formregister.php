@@ -1,6 +1,6 @@
 <?php 
       require_once "components/db_connect.php";
-    //   require_once "components/usermedia_file_upload.php";
+      require_once "components/usermedia_file_upload.php";
 
 
         // wenn user oder adm bereits angemeldet sind, werden diese auf Unterseiten umgeleitet
@@ -20,13 +20,9 @@
         return $clean;
       }
 
-      $firstnameError = $lastnameError = $passError = $firstname = $lastname = $addressError = $phone = $email = $password = "";
-      $firstname = $lastname = $password = $address = $phone = $email = "";
+      $firstError = $emailError = $passError = $firstname = $email = $password = "";
       if(isset($_POST["register"])){
         $firstname = cleanInput($_POST["firstname"]);
-        $lastname = cleanInput($_POST["lastname"]);
-        $adress = cleanInput($_POST["address"]);
-        $phone = cleanInput($_POST["phone"]);
         $password = cleanInput($_POST["password"]);
         $email = cleanInput($_POST["email"]);
         
@@ -43,38 +39,8 @@
           $error = true;
           $firstnameError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
         }
-        if(empty($lastname)){
-            $error = true;
-            $lastnameError ="Bitte firstnamen einfügen!";
-          }elseif(strlen($lastname) < 3){
-            $error = true;
-            $lastnameError ="Der Name muss aus mindestens 3 Zeichen bestehen!";
-          }elseif(!preg_match("/^[a-zA-Z]+$/", $firstname)){
-            $error = true;
-            $lastnameError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
-          }
-          if(empty($address)){
-            $error = true;
-            $addressError ="Bitte firstnamen einfügen!";
-          }elseif(strlen($address) < 3){
-            $error = true;
-            $addressError ="Der Name muss aus mindestens 3 Zeichen bestehen!";
-          }elseif(!preg_match("/^[a-zA-Z]+$/", $address)){
-            $error = true;
-            $addressError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
-          }
         // $firstname Validation END
-        if(empty($phone)){
-            $error = true;
-            $phoneError ="Bitte firstnamen einfügen!";
-          }elseif(strlen($phone) < 3){
-            $error = true;
-            $phoneError ="Der Name muss aus mindestens 3 Zeichen bestehen!";
-          }elseif(!preg_match("/^[a-zA-Z]+$/", $firstname)){
-            $error = true;
-            $phoneError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
-          }
-
+        
         // Validation of email
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
           $error = true;
@@ -100,8 +66,8 @@
         $picture = file_upload($_FILES["picture"]);
 
         if(!$error){
-          $sql = "INSERT INTO `users`(`lastname`, `password`, `email`, `picture`) 
-          VALUES ('$lastname','$password','$email','$picture->fileName') ";
+          $sql = "INSERT INTO `users`(`firstname`, `password`, `email`, `picture`) 
+          VALUES ('$firstname','$password','$email','$picture->fileName') ";
           $res = mysqli_query($connect, $sql);
           if($res){
             $errType = "success";
@@ -181,21 +147,15 @@
             ?>
             
                 <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME'])?>" enctype="multipart/form-data">
-                <input type="text" placeholder="Bitte Ihren Vornamen einfügen" class="form-control" name="firstname" value="<?= $firstname ?>">
-                            <span class="text-danger"><?= $firstnameError ?></span class="text-danger">
-                            <input type="text" placeholder="Bitte Ihren Nachnamen einfügen" class="form-control" name="lastname" value="<?= $lastname ?>">
-                            <span class="text-danger"><?= $lastnameError ?></span class="text-danger">
-                        <input type="email" placeholder="Bitte Ihre email-Adresse einfügen" class="form-control" name="email" value="<?= $email ?>">
-                        <span class="text-danger"><?= $emailError ?></span class="text-danger">
-                        <input type="file" placeholder="Bitte Bild einfügen" class="form-control" name= "picture">
-                        <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
-                        <span class="text-danger"><?= $passError ?></span class="text-danger">
-                        <input type="text" placeholder="Bitte Ihre Telefonnummer einfügen" class="form-control" name="phone" value="<?= $phone ?>">
-                        <span class="text-danger"><?= $teleError ?></span class="text-danger">
-                        <input type="text" placeholder="Bitte Ihren Adresse einfügen" class="form-control" name="address" value="<?= $address ?>">
-                        <span class="text-danger"><?= $addressError ?></span class="text-danger">
+                      <input type="text" placeholder="Bitte den gewünschten firstnamen einfügen" class="form-control" name="firstname" value="<?= $firstname ?>">
+                      <span class="text-danger"><?= $firstnameError ?></span class="text-danger">
+                      <input type="email" placeholder="Bitte Ihre email-Adresse einfügen" class="form-control" name="email" value="<?= $email ?>">
+                      <span class="text-danger"><?= $emailError ?></span class="text-danger">
+                      <input type="file" placeholder="Bitte Bild einfügen" class="form-control" name= "picture">
+                      <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
+                      <span class="text-danger"><?= $passError ?></span class="text-danger">
+                      <input type="submit" class="form-control" name="register" value="Register">
 
-                        <input type="submit" class="form-control" name="register" value="Register">
 
                 </form>
 </div> 

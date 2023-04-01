@@ -44,3 +44,4 @@ function file_upload($picture)
         }
     }
 }
+?>

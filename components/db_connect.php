@@ -1,16 +1,13 @@
 <?php
 
-$localhost = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "BE18_CR5_animal_adoption_Ruedenauer";
+    $hostname="localhost";
+    $username="root";
+    $password="";
+    $databasename="BE18_CR5_Ruedenauer";
 
-// create connection
-$connect = new  mysqli($localhost, $username, $password, $dbname);
+    $connect = mysqli_connect($hostname,$username,$password,$databasename);
 
-// check connection
-if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
-} else {
-    echo "Successfully Connected";
-}
+    // if(!$connect){
+    //     die("connection failed".mysqli_connect_error());
+    // }
+?>

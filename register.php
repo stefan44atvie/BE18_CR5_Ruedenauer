@@ -1,6 +1,6 @@
 <?php 
       require_once "components/db_connect.php";
-      require_once "components/userpicupload.php";
+      // require_once "components/userpicupload.php";
 
 
         // wenn user oder adm bereits angemeldet sind, werden diese auf Unterseiten umgeleitet
@@ -21,6 +21,7 @@
       }
 
       $firstnameError = $lastnameError = $passError = $firstname = $lastname = $addressError = $phone = $email = $password = "";
+      $firstname = $lastname = $password = $address = $phone = $email = "";
       if(isset($_POST["register"])){
         $firstname = cleanInput($_POST["firstname"]);
         $lastname = cleanInput($_POST["lastname"]);
@@ -63,6 +64,27 @@
             $error = true;
             $passError = "Passwort muss aus mindestens 6 Zeichen bestehen";
             }
+            if(empty($address)){
+              $error = true;
+              $addressError ="Bitte firstnamen einfügen!";
+            }elseif(strlen($address) < 3){
+              $error = true;
+              $addressError ="Der Name muss aus mindestens 3 Zeichen bestehen!";
+            }elseif(!preg_match("/^[a-zA-Z]+$/", $address)){
+              $error = true;
+              $addressError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
+            }
+             // $firstname Validation END
+        if(empty($phone)){
+          $error = true;
+          $phoneError ="Bitte firstnamen einfügen!";
+        }elseif(strlen($phone) < 3){
+          $error = true;
+          $phoneError ="Der Name muss aus mindestens 3 Zeichen bestehen!";
+        }elseif(!preg_match("/^[a-zA-Z]+$/", $firstname)){
+          $error = true;
+          $phoneError ="Bitte nur Zeichen aus dem Alphabet eingeben!";
+        }
 
             $password = hash("sha256", $password);
 
@@ -70,14 +92,9 @@
             // var_dump($address);
             // die();
             if(!$error){
-            $sql = "INSERT INTO `users`(`firstname`, `lastname`, `àddress`) 
-            VALUES ('$firstname', '$lastname', '$address)";
-            // var_dump($sql);
-            // die();
-            // `, `picture`, `email`, `phone`, `address`, `password`
-            // , '$lastname', '$picture->fileName', '$email', '$phone', '$address', '$password'
-
-            // INSERT INTO `users`(`firstname`, `lastname`, `picture`, `email`, `phone`, `address`, `status`, `password`, `reg_date`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')
+            $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`, `address`, `phone`) 
+            VALUES ('$firstname', '$lastname', '$email', '$password', '$address', '$phone')";
+            
             $res = mysqli_query($connect, $sql);
             if($res){
                 $errType = "success";
@@ -128,9 +145,9 @@
                         <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
                         <span class="text-danger"><?= $passError ?></span class="text-danger">
                         <input type="text" placeholder="Bitte Ihre Telefonnummer einfügen" class="form-control" name="phone" value="<?= $phone ?>">
-                        <span class="text-danger"><?= $teleError ?></span class="text-danger">
+                        <span class="text-danger"><?= $phoneError ?></span class="text-danger">
                         <input type="text" placeholder="Bitte Ihren Adresse einfügen" class="form-control" name="address" value="<?= $address ?>">
-                        <!-- <span class="text-danger"><?= $addressError ?></span class="text-danger"> -->
+                        <span class="text-danger"><?= $addressError ?></span class="text-danger">
 
                         <input type="submit" class="form-control" name="register" value="Register">
         </form>
