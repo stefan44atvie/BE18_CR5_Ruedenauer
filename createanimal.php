@@ -6,7 +6,7 @@ $sql1 = "Select * from animal_type";
 $result1 = mysqli_query($connect, $sql1);
 $options = "";
 while($row = mysqli_fetch_assoc($result1)){
-    
+    $options .="<option value='{$row["type_id"]}'>{$row["animal_type"]}</option>";
 }
 
 // $sql="select pets.pet_id, pets.picture, pets.size, pets.size, animal_type.animal_type, pets.size, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_size from pets
@@ -18,10 +18,6 @@ while($row = mysqli_fetch_assoc($result1)){
     
 //     $result = mysqli_query ($connect, $sql);
 //     $row=mysqli_fetch_assoc($result);
-
-    $sql_antype = "Select animal_type from animal_type";
-    $result_anitype = mysqli_query($connect, $sql_antype);
-    $row_antype = mysqli_fetch_assoc($result_anitype);
 
     // function cleanInput($param){
     //     $clean = trim($param);
@@ -139,8 +135,8 @@ while($row = mysqli_fetch_assoc($result1)){
             <span class="text-danger"><?= $breedError ?></span class="text-danger">
 
            <select name = "Tierart">
-                <option value="1"> Test1 </option>
-                <option value="2"> Terst3 </option>
+                <option value="none"> Select an animal type </option>
+                <? $options; ?>
             </select>
 
             <input type="submit" class="form-control" size="submit" value="Tier eintrsizen">
