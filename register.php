@@ -99,7 +99,7 @@
             $res = mysqli_query($connect, $sql);
             if($res){
                 $errType = "success";
-                $errMsg = "Erfolgreich registriert!! Sie können sich nun einloggen";
+                $errMsg = "Erfolgreich registriert!! Sie können sich nun <a href='login.php'>einloggen</a>";
                 $username = "";
                 $email = "";
                 $uploadError = ($picture >$error != 0 ) ? $picture->ErrorMessage : "";
@@ -127,12 +127,12 @@
     <link rel="stylesheet" href="css/petstore.css">
   
   <!-- Title -->
-  <title>Simple Page</title>
+  <title>Animal Farm Pet Adoption Site</title>
 </head>
 <body>
   
 <div class= "container">
-        <h1>Please Sign up here </h1>
+        <h1>Animal Farm Pets <small class="text-muted">Registration Page</small></h1>
         <?php
               if(isset($errMsg)){
               ?>
