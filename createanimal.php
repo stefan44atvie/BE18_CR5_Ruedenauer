@@ -140,49 +140,52 @@ while($row = mysqli_fetch_assoc($result2)){
   <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
-  <title>New animals</title>
+  <title>Animal Farm Pets</title>
 </head>
 <body>
-<form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_size'])?>" enctype="multipart/form-data">
-            <input type="text" placeholder="Bitte den Namen des Tieres einfügen" class="form-control" size="size" value="<?= $name ?>">
-            <span class="text-danger"><?= $nameError ?></span class="text-danger">
-            
-            <input type="text" placeholder="Bitte das Alter einfügen" class="form-control" size="age" value="<?= $age ?>">
-            <span class="text-danger"><?= $ageError ?></span class="text-danger">
-            <input type="file" placeholder="Bitte Bild einfügen" class="form-control" size= "picture">
-            <span class="text-danger"><?= $picError ?></span class="text-danger">            
-            <select class="form-select" name = "Tierart">
-                <option value="none"> Select an animal type </option>
-                <?php  echo $options; ?>
-            </select>
-            <span class="text-danger"><?= $typeError ?></span class="text-danger">
-            <input type="text" placeholder="Bitte Beschreibung einfügen" class="form-control" size= "size">
-            <span class="text-danger"><?= $sizeError ?></span class="text-danger">
-            <select class="form-select" name = "vaccination">
-                <option value="none"> Select an Vaccination status </option>
-                <?php  echo $options4; ?>
-            </select>            
-            <span class="text-danger"><?= $vaccError ?></span class="text-danger">
-            <select class="form-select" name = "animal_size">
-                <option value="none"> Select an animal size </option>
-                <?php  echo $options2; ?>
-            </select>
-            <span class="text-danger"><?= $sizeError ?></span class="text-danger">
-            <select class="form-select" name = "animal_status">
-                <option value="none"> Select status of the animal </option>
-                <?php  echo $options3; ?>
-            </select>            
-            <span class="text-danger"><?= $statusError ?></span class="text-danger">
-            <select class="form-select" name = "breed_name">
-                <option value="none"> Select an animal breed </option>
-                <?php  echo $options5; ?>
-            </select>            
-            <!-- select button  -->
-            <span class="text-danger"><?= $breedError ?></span class="text-danger">
+<div class= "container">
+    <h1>Animal Farm Pets <small class="text-muted">Create a new entry for a new animal</small></h1>
 
-            <input type="submit" class="form-control" size="submit" value="Tier eintrsizen">
-</form>
+        <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_size'])?>" enctype="multipart/form-data">
+                    <input type="text" placeholder="Bitte den Namen des Tieres einfügen" class="form-control" size="size" value="<?= $name ?>">
+                    <span class="text-danger"><?= $nameError ?></span class="text-danger">
+                    
+                    <input type="text" placeholder="Bitte das Alter einfügen" class="form-control" size="age" value="<?= $age ?>">
+                    <span class="text-danger"><?= $ageError ?></span class="text-danger">
+                    <input type="file" placeholder="Bitte Bild einfügen" class="form-control" size= "picture">
+                    <span class="text-danger"><?= $picError ?></span class="text-danger">            
+                    <select class="form-select" name = "Tierart">
+                        <option value="none"> Select an animal type </option>
+                        <?php  echo $options; ?>
+                    </select>
+                    <span class="text-danger"><?= $typeError ?></span class="text-danger">
+                    <input type="text" placeholder="Bitte Beschreibung einfügen" class="form-control" size= "size">
+                    <span class="text-danger"><?= $sizeError ?></span class="text-danger">
+                    <select class="form-select" name = "vaccination">
+                        <option value="none"> Select an Vaccination status </option>
+                        <?php  echo $options4; ?>
+                    </select>            
+                    <span class="text-danger"><?= $vaccError ?></span class="text-danger">
+                    <select class="form-select" name = "animal_size">
+                        <option value="none"> Select an animal size </option>
+                        <?php  echo $options2; ?>
+                    </select>
+                    <span class="text-danger"><?= $sizeError ?></span class="text-danger">
+                    <select class="form-select" name = "animal_status">
+                        <option value="none"> Select status of the animal </option>
+                        <?php  echo $options3; ?>
+                    </select>            
+                    <span class="text-danger"><?= $statusError ?></span class="text-danger">
+                    <select class="form-select" name = "breed_name">
+                        <option value="none"> Select an animal breed </option>
+                        <?php  echo $options5; ?>
+                    </select>            
+                    <!-- select button  -->
+                    <span class="text-danger"><?= $breedError ?></span class="text-danger">
 
+                    <input type="submit" class="form-control" size="submit" value="Tier eintrsizen">
+        </form>
+    </div>
 
   <noscript>Your browser don't support JavaScript!</noscript>
   <script src="./scripts.js"></script>
