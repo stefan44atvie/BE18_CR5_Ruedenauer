@@ -5,35 +5,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Fonts Pre Connect -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <!-- Meta Tags -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts Links (Roboto 400, 500 and 700 included) -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-
   <!-- CSS Files Links -->
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
   <title>Simple Page</title>
 </head>
 <body>
-  <header>
-    <h1>noi title</h1>
-  </header>
+ <div class="container">
+        <button type="button" class="btn btn-primary">Edit Animals</button>
+        <button type="button" class="btn btn-primary">See users</button>
+        <button type="button" class="btn btn-primary"><a href="seeanimals.php">see animals</a></button>
+        <button type="button" class="btn btn-primary">Edit users</button>
+</div>
 
-  <main>
-    <p>code change</p>
-  </main>
 
-  <footer>
-    <p>HTML5 Template</p>
-  </footer>
+
 
   <noscript>Your browser don't support JavaScript!</noscript>
   <script src="./scripts.js"></script>

@@ -1,12 +1,12 @@
 <?php
     session_start();
 
-    if(isset($_SESSION["user"])){
-      header("Location: userhome.php");
-    }
-    if(isset($_SESSION["adm"])){
-      header("Location: dashboard.php");
-    }
+    // if(isset($_SESSION["user"])){
+    //   header("Location: userhome.php");
+    // }
+    // if(isset($_SESSION["adm"])){
+    //   header("Location: dashboard.php");
+    // }
 
 require_once "components/db_connect.php";
 
@@ -30,7 +30,7 @@ require_once "components/db_connect.php";
             $emailError = "Plase enter email!";
          }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $error = true;
-            $emailError = "Enter valid email";
+            $emailError = "Enter vailid email";
          }
          if(empty($password)){
             $error = true;
@@ -38,17 +38,15 @@ require_once "components/db_connect.php";
          }
 
          if(!$error){
-            //$password = hash("sha256", $password);
+            $password = hash("sha256", $password);
 
             $sql = "Select * from users where email = '$email' and password ='$password'";
             $result = mysqli_query($connect, $sql);
-            var_dump($result);
-            die();
             $count = mysqli_num_rows($result);
             $row = mysqli_fetch_assoc($result);
             if($count == 1){
                 if($row["status"] =="adm"){
-                  $_SESSION["adm"] = $row["id"];
+                  $_SESSION["admin"] = $row["id"];
                   header ("Location: dashboard.php"); 
                 }else{
                   $_SESSION["user"] =$row["id"];
@@ -61,6 +59,7 @@ require_once "components/db_connect.php";
     }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -110,11 +109,10 @@ require_once "components/db_connect.php";
 <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME'])?>" enctype="multipart/form-data">
 
                 <h1 class="title_hours">LOGIN</h1>
-                  <span class="text-danger"><?= $usernameError ?></span class="text-danger">
                   <input type="email" placeholder="Bitte Ihre email-Adresse einfügen" class="form-control" name="email" value="<?= $email ?>">
                   <span class="text-danger"><?= $emailError ?></span class="text-danger">
                   <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
-                  <span class="text-danger"><?= $passError ?></span class="text-danger">
+                  <span class="text-danger"><?= $passwordError ?></span class="text-danger">
                   <input type="submit" class="form-control" name="login" value="Einloggen">
 
 
