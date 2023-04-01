@@ -79,36 +79,13 @@ require_once "components/db_connect.php";
 </head>
 <body>
 
- <!-- Hauptmenü oben  -->
- <nav class="nav nav-pills flex-column flex-sm-row opacity_dark50">
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="index.php">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="speisekarte.php">Speisekarte</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="wochenkarte.php">Wochenkarte</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="kontakt.php">Kontakt&Öffnungszeiten</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="dashboard.php" tabindex="-1" aria-disabled="true">Dashboard</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="login.php" tabindex="-1" aria-disabled="true">Login</a>
-  </li>
-</ul>
-</nav>
-<!-- Ende Hauptmenü  -->
  
-<div class="loginbox opacity_dark50 box_top5">
+ 
+<div class="container">
 
 <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME'])?>" enctype="multipart/form-data">
 
-                <h1 class="title_hours">LOGIN</h1>
+      <h1>Animal Farm Pets <small class="text-muted">Your Login</small></h1>
                   <input type="email" placeholder="Bitte Ihre email-Adresse einfügen" class="form-control" name="email" value="<?= $email ?>">
                   <span class="text-danger"><?= $emailError ?></span class="text-danger">
                   <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
