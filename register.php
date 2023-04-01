@@ -1,6 +1,6 @@
 <?php 
       require_once "components/db_connect.php";
-      // require_once "components/userpicupload.php";
+      require_once "components/usermedia_file_upload.php";
 
 
         // wenn user oder adm bereits angemeldet sind, werden diese auf Unterseiten umgeleitet
@@ -88,13 +88,14 @@
 
             $password = hash("sha256", $password);
 
-            // $picture = file_upload($_FILES["picture"]);
+          $picture = file_upload($_FILES["picture"]);
             // var_dump($address);
             // die();
             if(!$error){
-            $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`, `address`, `phone`) 
-            VALUES ('$firstname', '$lastname', '$email', '$password', '$address', '$phone')";
-            
+            $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`, `address`, `phone`,`picture` ) 
+            VALUES ('$firstname', '$lastname', '$email', '$password', '$address', '$phone', '$picture->fileName')";
+            // var_dump($sql);
+            // die();
             $res = mysqli_query($connect, $sql);
             if($res){
                 $errType = "success";
@@ -110,7 +111,6 @@
             
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +133,18 @@
   
 <div class= "container">
         <h1>Please Sign up here </h1>
+        <?php
+              if(isset($errMsg)){
+              ?>
+                <div class = "alert alert-<?= $errType ?>" role="alert">
+                  <?= $errMsg ?> 
+                  <?= $uploadError ?> 
 
+                </div> 
+                
+                <?php 
+              }
+              ?>
         <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME'])?>" enctype="multipart/form-data">
                             <input type="text" placeholder="Bitte Ihren Vornamen einfügen" class="form-control" name="firstname" value="<?= $firstname ?>">
                             <span class="text-danger"><?= $firstnameError ?></span class="text-danger">

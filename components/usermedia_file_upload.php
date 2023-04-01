@@ -18,10 +18,10 @@ function file_upload($picture)
     } else {
         if (in_array($fileExtension, $filesAllowed)) {
             if ($fileError === 0) {
-                if ($fileSize < 2000000) { //500kb this number is in bytes
+                if ($fileSize < 5000000) { //500kb this number is in bytes
                     //it gives a file name based microseconds
                     $fileNewName = uniqid('') . "." . $fileExtension; // 1233343434.jpg i.e
-                    $destination = "./uploads/pictures/user/$fileNewName";
+                    $destination = "./pictures/$fileNewName";
                     if (move_uploaded_file($fileTmpName, $destination)) {
                         $result->error = 0;
                         $result->fileName = $fileNewName;
