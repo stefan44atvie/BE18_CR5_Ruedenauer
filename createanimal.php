@@ -2,6 +2,12 @@
 require_once "components/db_connect.php";
 // require_once "components/animal_upload.php";
 
+$sql1 = "Select * from animal_type";
+$result1 = mysqli_query($connect, $sql1);
+$options = "";
+while($row = mysqli_fetch_assoc($result1)){
+    
+}
 
 // $sql="select pets.pet_id, pets.picture, pets.size, pets.size, animal_type.animal_type, pets.size, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_size from pets
 //     inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
