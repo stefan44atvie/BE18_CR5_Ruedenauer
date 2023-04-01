@@ -37,7 +37,7 @@ while($row = mysqli_fetch_assoc($result2)){
 
 // Select End Animal type
 
-if ($_POST) {
+if (isset($_POST))["submit"] {
     $name = $_POST["name"];
     $age = $_POST["age"];
     $animaltype = $_POST["Tierart"];
@@ -48,6 +48,7 @@ if ($_POST) {
     $breed_name = $_POST["breed_name"];
 
     
+
 }
 
 
