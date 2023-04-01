@@ -2,12 +2,42 @@
 require_once "components/db_connect.php";
 // require_once "components/animal_upload.php";
 
-$sql1 = "Select * from animal_type";
-$result1 = mysqli_query($connect, $sql1);
+//FOR select button Animalo Type
+$sql_antype_select = "Select * from `animal_type`";
+$result1 = mysqli_query($connect, $sql_antype_select);
 $options = "";
+$sql_animalsize_select = "Select * from `animal_size`";
+$result2 = mysqli_query($connect, $sql_animalsize_select);
+$options2 = "";
+$sql_animalstatus_select = "Select * from `animal_status`";
+$result3 = mysqli_query($connect, $sql_animalstatus_select);
+$options3 = "";
+$sql_vaccination_select = "Select * from `vaccination`";
+$result4 = mysqli_query($connect, $sql_vaccination_select);
+$options4 = "";
+$sql_breed_select = "Select * from `breed`";
+$result5 = mysqli_query($connect, $sql_breed_select);
+$options5 = "";
+
 while($row = mysqli_fetch_assoc($result1)){
-    $options .="<option value='{$row["type_id"]}'>{$row["animal_type"]}</option>";
+   $options .= "<option value='{$row["type_id"]}'>{$row["animal_type"]}</option>";
 }
+while($row = mysqli_fetch_assoc($result2)){
+    $options2 .= "<option value='{$row["size_id"]}'>{$row["size"]}</option>";
+ }
+ while($row = mysqli_fetch_assoc($result3)){
+    $options3 .= "<option value='{$row["animalstatus_id"]}'>{$row["animal_status"]}</option>";
+ }
+ while($row = mysqli_fetch_assoc($result4)){
+    $options4 .= "<option value='{$row["vacc_id"]}'>{$row["vacc_text"]}</option>";
+ }
+ while($row = mysqli_fetch_assoc($result5)){
+    $options5 .= "<option value='{$row["breed_id"]}'>{$row["breed_name"]}</option>";
+ }
+
+// Select End Animal type
+
+
 
 // $sql="select pets.pet_id, pets.picture, pets.size, pets.size, animal_type.animal_type, pets.size, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_size from pets
 //     inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
@@ -97,7 +127,6 @@ while($row = mysqli_fetch_assoc($result1)){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,27 +146,38 @@ while($row = mysqli_fetch_assoc($result1)){
 <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_size'])?>" enctype="multipart/form-data">
             <input type="text" placeholder="Bitte den Namen des Tieres einfügen" class="form-control" size="size" value="<?= $name ?>">
             <span class="text-danger"><?= $nameError ?></span class="text-danger">
+            
             <input type="text" placeholder="Bitte das Alter einfügen" class="form-control" size="age" value="<?= $age ?>">
             <span class="text-danger"><?= $ageError ?></span class="text-danger">
             <input type="file" placeholder="Bitte Bild einfügen" class="form-control" size= "picture">
             <span class="text-danger"><?= $picError ?></span class="text-danger">            
-            <input type="text" placeholder="Bitte Tierart einfügen" class="form-control" size= "animal_type">
+            <select class="form-select" name = "Tierart">
+                <option value="none"> Select an animal type </option>
+                <?php  echo $options; ?>
+            </select>
             <span class="text-danger"><?= $typeError ?></span class="text-danger">
             <input type="text" placeholder="Bitte Beschreibung einfügen" class="form-control" size= "size">
             <span class="text-danger"><?= $sizeError ?></span class="text-danger">
-            <input type="text" placeholder="Bitte Impfstatus einfügen" class="form-control" size= "vacc_text">
+            <select class="form-select" name = "vaccination">
+                <option value="none"> Select an Vaccination status </option>
+                <?php  echo $options4; ?>
+            </select>            
             <span class="text-danger"><?= $vaccError ?></span class="text-danger">
-            <input type="text" placeholder="Bitte Größe des Tieres einfügen" class="form-control" size= "animal_size">
-            <span class="text-danger"><?= $sizeError ?></span class="text-danger">
-            <input type="text" placeholder="Bitte Status des Tieres einfügen" class="form-control" size= "animal_status">
-            <span class="text-danger"><?= $statusError ?></span class="text-danger">
-            <input type="text" placeholder="Bitte Rasse des Tieres einfügen" class="form-control" size= "breed_size">
-            <span class="text-danger"><?= $breedError ?></span class="text-danger">
-
-           <select name = "Tierart">
-                <option value="none"> Select an animal type </option>
-                <? $options; ?>
+            <select class="form-select" name = "animal_size">
+                <option value="none"> Select an animal size </option>
+                <?php  echo $options2; ?>
             </select>
+            <span class="text-danger"><?= $sizeError ?></span class="text-danger">
+            <select class="form-select" name = "animal_status">
+                <option value="none"> Select status of the animal </option>
+                <?php  echo $options3; ?>
+            </select>            
+            <span class="text-danger"><?= $statusError ?></span class="text-danger">
+            <select class="form-select" name = "breed_name">
+                <option value="none"> Select an animal breed </option>
+                <?php  echo $options5; ?>
+            </select>            
+            <span class="text-danger"><?= $breedError ?></span class="text-danger">
 
             <input type="submit" class="form-control" size="submit" value="Tier eintrsizen">
 </form>
