@@ -177,6 +177,7 @@ while($row = mysqli_fetch_assoc($result2)){
                 <option value="none"> Select an animal breed </option>
                 <?php  echo $options5; ?>
             </select>            
+            <!-- select button  -->
             <span class="text-danger"><?= $breedError ?></span class="text-danger">
 
             <input type="submit" class="form-control" size="submit" value="Tier eintrsizen">
