@@ -1,6 +1,6 @@
 <?php
 require_once "components/db_connect.php";
-// require_once "components/animal_upload.php";
+require_once "components/animal_upload.php";
 
 //FOR select button Animal Type
 $sql_antype_select = "Select * from `animal_type`";
@@ -90,8 +90,8 @@ if (isset($_POST["submit"])) {
             $sql1 = "INSERT INTO `pets`(`name`, `picture`, `age`, `description`, `fk_animal_type_id`, `fk_breed_id`, `fk_vaccination_id`, `fk_size_id`, `fk_status_id`) 
             VALUES ('$name', '$picture->fileName', '$age', '$description', '$animaltype', '$breed_name', '$vaccination', '$animal_size', '$animal_status') ";
          
-            $res = mysqli_query($connect, $sql1);
-            var_dump($res);
+            // $res = mysqli_query($connect, $sql1);
+            // var_dump($res);
             die();
             if($res){
               $errType = "success";

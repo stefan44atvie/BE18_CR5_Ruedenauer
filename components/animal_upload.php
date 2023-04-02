@@ -12,7 +12,7 @@ function file_upload($picture)
     $fileSize = $picture["size"];
     $test1 ="test";
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    $filesAllowed = ["pdf"];
+    $filesAllowed = ["jpg", "png"];
     if ($fileError == 4) {
         $result->ErrorMessage = "No picture was chosen. It can always be updated later.";
         return $result;
@@ -21,7 +21,7 @@ function file_upload($picture)
             if ($fileError === 0) {
                 if ($fileSize < 5000000) { //500kb this number is in bytes
                     //it gives a file name based microseconds
-                    $fileNewName = "picture" . "." . $fileExtension; // 1233343434.jpg i.e
+                    $fileNewName = "animal" . "." . $fileExtension; // 1233343434.jpg i.e
                     $destination = "./pictures/animals/$fileNewName";
                     if (move_uploaded_file($fileTmpName, $destination)) {
                         $result->error = 0;
