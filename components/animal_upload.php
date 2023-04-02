@@ -1,27 +1,27 @@
 <?php
-function file_upload($picture)
+function file_upload($wochenkarte)
 {
     $result = new stdClass(); //this object will carry status from file upload
     $result->fileName = 'animal.jpg';
     $result->error = 1; //it could also be a boolean true/false
-    //collect data from object $picture
-    $fileName = $picture["name"];
-    $fileType = $picture["type"];
-    $fileTmpName = $picture["tmp_name"];
-    $fileError = $picture["error"];
-    $fileSize = $picture["size"];
+    //collect data from object $wochenkarte
+    $fileName = $wochenkarte["name"];
+    $fileType = $wochenkarte["type"];
+    $fileTmpName = $wochenkarte["tmp_name"];
+    $fileError = $wochenkarte["error"];
+    $fileSize = $wochenkarte["size"];
     $test1 ="test";
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    $filesAllowed = ["jpg", "png"];
+    $filesAllowed = ["jpg"];
     if ($fileError == 4) {
-        $result->ErrorMessage = "No picture was chosen. It can always be updated later.";
+        $result->ErrorMessage = "No wochenkarte was chosen. It can always be updated later.";
         return $result;
     } else {
         if (in_array($fileExtension, $filesAllowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 5000000) { //500kb this number is in bytes
                     //it gives a file name based microseconds
-                    $fileNewName = "animal" . "." . $fileExtension; // 1233343434.jpg i.e
+                    $fileNewName = "wochenkarte" . "." . $fileExtension; // 1233343434.jpg i.e
                     $destination = "./pictures/animals/$fileNewName";
                     if (move_uploaded_file($fileTmpName, $destination)) {
                         $result->error = 0;
@@ -33,7 +33,7 @@ function file_upload($picture)
                         return $result;
                     }
                 } else {
-                    $result->ErrorMessage = "<br>This picture is bigger than the allowed 2MB. <br> Please choose a smaller one and Update your profile.";
+                    $result->ErrorMessage = "<br>This wochenkarte is bigger than the allowed 2MB. <br> Please choose a smaller one and Update your profile.";
                     return $result;
                 }
             } else {
