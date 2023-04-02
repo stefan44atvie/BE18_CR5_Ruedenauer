@@ -78,7 +78,22 @@ require_once "components/db_connect.php";
   <!-- Title -->
 </head>
 <body>
-
+ <!-- Menu Part -->
+ <ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+</ul>
+<!-- Menu End -->
  
  
 <div class="container">
