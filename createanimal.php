@@ -2,7 +2,7 @@
 require_once "components/db_connect.php";
 // require_once "components/animal_upload.php";
 
-//FOR select button Animalo Type
+//FOR select button Animal Type
 $sql_antype_select = "Select * from `animal_type`";
 $result1 = mysqli_query($connect, $sql_antype_select);
 $options = "";
@@ -37,7 +37,7 @@ while($row = mysqli_fetch_assoc($result2)){
 
 // Select End Animal type
 
-if (isset($_POST))["submit"] {
+if (isset($_POST["submit"])) {
     $name = $_POST["name"];
     $age = $_POST["age"];
     $animaltype = $_POST["Tierart"];
@@ -47,13 +47,71 @@ if (isset($_POST))["submit"] {
     $animal_status = $_POST["animal_status"];
     $breed_name = $_POST["breed_name"];
 
-    
+    $error = false;
 
-}
+    if(empty($name)){
+        $error = true;
+        $nameError = "Bitte Tiernamen einfügen";
+    }
+    if(empty($age)){
+        $error = true;
+        $ageError = "Bitte Alter des Tieres einfügen";
+    }
+    if(empty($animaltype)){
+        $error = true;
+        $typeError = "Bitte Tierart einfügen";
+    }
+    if(empty($description)){
+        $error = true;
+        $descriptionError = "Bitte Beschreibung einfügen";
+    }
+    if(empty($vaccination)){
+        $error = true;
+        $vaccError = "Bitte Impfstatus einfügen";
+    }
+    if(empty($animal_size)){
+        $error = true;
+        $sizeError = "Bitte Größe des Tieres einfügen";
+    }
+    if(empty($animal_status)){
+        $error = true;
+        $statusError = "Bitte aktuellen Status des Tieres einfügen";
+    }
+    if(empty($breed_name)){
+        $error = true;
+        $breedError = "Bitte Tierrasse einfügen";
+    }
 
+    $picture = file_upload($_FILES["picture"]);
 
+    try {
+        if(!$error){
+            $sql1 = "INSERT INTO `pets`(`name`, `picture`, `age`, `description`, `fk_animal_type_id`, `fk_breed_id`, `fk_vaccination_id`, `fk_size_id`, `fk_status_id`) 
+            VALUES ('$name', '$picture->fileName', '$age', '$description', '$animaltype', '$breed_name', '$vaccination', '$animal_size', '$animal_status') ";
+         
+            $res = mysqli_query($connect, $sql1);
+            if($res){
+              $errType = "success";
+              $errMsg = "Erfolgreich gespeichert!!";
+              $text = "";
+            }else{
+              $errType = "danger";
+              $errMsg = "something went wrong, try again later!!";
+                  
+            }
+            
+          
+        }
+       } catch (Exception $e){
+       {
+        // echo $e;
+        $errType = "danger";
+        $errMsg = "Dieser Eintrag ist leider schon vorhanden!";
+       }
 
-
+    }
+      
+    }
 
 
 // $sql="select pets.pet_id, pets.picture, pets.size, pets.size, animal_type.animal_type, pets.size, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_size from pets

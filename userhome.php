@@ -12,7 +12,7 @@
   //     exit;
   // }
 
-    $sql="select pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
+    $sql="select pets.pet_id, select pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
     inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
     inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
     inner join animal_size on pets.fk_size_id = animal_size.size_id
@@ -30,7 +30,7 @@
             $layout .= "
             
                     <tr>
-                    <td><img src='pictures/" .$row['picture']."' width='100' alt='Card image cap'</img></td>
+                    <td><img src='pictures/.$row["picture"].'' width='100' alt='Card image cap'</img></td>
                     <td><a class='tabletext'>{$row["name"]}</a></td>
                     <td><a class='tabletext'>{$row["age"]}</a></td>
                     <td><a class='tabletext'>{$row["animal_type"]}</a></td>
@@ -40,7 +40,7 @@
                     <td><a class='tabletext'>{$row["animal_status"]}</a></td>
                     <td><a class='tabletext'>{$row["breed_name"]}</a></td>
 
-                    <td><a class='btn btn-info' href='details_user.php?id={$row["id"]}'>Details</a></td>
+                    <td><a class='btn btn-info' href='details_user.php?id={$row["pet_id"]}'>Details</a></td>
 
                    
                 </tr>  
@@ -68,9 +68,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Fonts Pre Connect -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+ 
   <!-- Meta Tags -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
