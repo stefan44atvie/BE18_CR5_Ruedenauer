@@ -113,7 +113,7 @@ if (isset($_POST["submit"])) {
        }
 
     }
-      
+    //   echo "Danke für die Eingabe";
     }
 
 ?>
@@ -136,6 +136,18 @@ if (isset($_POST["submit"])) {
 <body>
 <div class= "container">
     <h1>Animal Farm Pets <small class="text-muted">Create a new entry for a new animal</small></h1>
+        <?php
+                if(isset($errMsg)){
+                ?>
+                    <div class = "alert alert-<?= $errType ?>" role="alert">
+                    <?= $errMsg ?> 
+                    <?= $uploadError ?> 
+
+                    </div> 
+                    
+                    <?php 
+                }
+        ?>
 
         <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_size'])?>" enctype="multipart/form-data">
                     <input type="text" placeholder="Bitte den Namen des Tieres einfügen" class="form-control" name="name" value="<?= $name ?>">

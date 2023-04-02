@@ -91,7 +91,7 @@
 <!-- Menu End -->
 
     <div class="container " style="margin-left:10px;">
-        <h1 class="text-center"> Animal Pet Farm </h1>
+        <h1 class="text-center"> Animal Pet Farm <small class="text-muted">Is this pet maybe yours soon?</small></h1>
 
         <div class="d-flex flex-wrap">
             <?php
