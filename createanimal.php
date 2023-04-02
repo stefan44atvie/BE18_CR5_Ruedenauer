@@ -36,6 +36,7 @@ while($row = mysqli_fetch_assoc($result2)){
  }
 
 // Select End Animal type
+$nameError = $ageError = $typeError = $descriptionError =  $vaccError = $sizeError = $statusError = $breedError = $name = $age = $animaltype = $description = $vaccination = $animal_size = $animal_status = $breed_name = "";
 
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
@@ -90,6 +91,8 @@ if (isset($_POST["submit"])) {
             VALUES ('$name', '$picture->fileName', '$age', '$description', '$animaltype', '$breed_name', '$vaccination', '$animal_size', '$animal_status') ";
          
             $res = mysqli_query($connect, $sql1);
+            var_dump($res);
+            die();
             if($res){
               $errType = "success";
               $errMsg = "Erfolgreich gespeichert!!";
