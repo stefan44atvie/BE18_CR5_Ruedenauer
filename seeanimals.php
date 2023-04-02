@@ -18,6 +18,7 @@
             $layout .= "
             
                     <tr>
+                    <td><img src='pictures/animals/" .$row['picture']."' width='100' alt='Card image cap'</img></td>
                     <td><a class='tabletext'>{$row['name']}</a></td>
                     <td><a class='tabletext'>{$row['age']}</a></td>
                     <td><a class='tabletext'>{$row['animal_type']}</a></td>
