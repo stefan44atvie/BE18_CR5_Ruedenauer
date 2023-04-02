@@ -18,12 +18,30 @@
             $layout .= "
         
         <div class='d-flex flex-wrap'>
-            <div class='card d-inline p-3 bg-secondary text-white ' style='width: 18rem;'>
-                <img src='pictures/animals/" .$row['picture']."' width='100' alt='Card image cap'</img>
-                <div class='card-body'>
-                    <h5 class='card-title'>{$row['name']}</h5>
-                    <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href='#' class='btn btn-primary'>Go somewhere</a>
+            <div class='card d-inline p-3 bg-secondary text-white' style='width: 18rem;'>
+                <img src='pictures/animals/" .$row['picture']."' width='150' alt='Card image cap'</img>
+                    <div class='card-body'>
+                        <h5 class='card-title'>{$row['name']}</h5>
+                        <p class='card-text'>      
+                            <div class='card w-75 align-content-center' style='width: 18rem;'>
+                            <div class='card-header'>
+                            Details to this animal
+                            </div>
+                                <ul class='list-group list-group-flush w-100'>
+                                    <li class='list-group-item list-group-item-primary w-100'><b>Animal status</b>: {$row['animal_status']}</li>
+                                    <li class='list-group-item '><b>Animal Type</b>:{$row['animal_type']}</li>
+                                    <li class='list-group-item '><b>Breed</b>: {$row['breed_name']}</li>
+                                    <li class='list-group-item '><b>Age</b>: {$row['age']}</li>
+                                    <li class='list-group-item '><b>Breed</b>: {$row['breed_name']}</li>
+                                    <li class='list-group-item '><b>Description</b>: {$row['description']}</li>
+                                    <li class='list-group-item '><b>Size</b>: {$row['size']}</li>
+                                    <li class='list-group-item '><b>Vaccination status</b>: {$row['vacc_text']}</li>
+                                    <li class='list-group-item '><b>Vaccination status</b>: {$row['vacc_text']}</li>
+
+                                </ul>
+                    </div>                    
+                  
+                  <a href='#' class='btn btn-primary'>Go somewhere</a>
                 </div>
             </div>  
         </div>
@@ -72,8 +90,8 @@
 </ul>
 <!-- Menu End -->
 
-    <div class="container" style="width:100%;margin-left:10px;">
-        <h1> Animal Pet Farm </h1>
+    <div class="container " style="margin-left:10px;">
+        <h1 class="text-center"> Animal Pet Farm </h1>
 
         <div class="d-flex flex-wrap">
             <?php
