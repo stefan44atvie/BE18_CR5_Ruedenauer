@@ -17,13 +17,13 @@
         while($row = mysqli_fetch_assoc($result)){
             $layout .= "
         
-        <div class='d-flex flex-wrap'>
+        <div class='d-flex flex-wrap row-cols-auto'>
             <div class='card d-inline p-3 bg-secondary text-white' style='width: 18rem;'>
                 <img src='pictures/animals/" .$row['picture']."' width='150' alt='Card image cap'</img>
                     <div class='card-body'>
                         <h5 class='card-title'>{$row['name']}</h5>
                         <p class='card-text'>      
-                            <div class='card w-75 align-content-center' style='width: 18rem;'>
+                            <div class='card w-90 align-content-center'>
                             <div class='card-header'>
                             Details to this animal
                             </div>
@@ -73,7 +73,7 @@
 </head>
 <body>
 
-    <!-- Menu Part -->
+<!-- Menu Part -->
         <ul class="nav justify-content-center">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
@@ -83,9 +83,6 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
     </li>
 </ul>
 <!-- Menu End -->

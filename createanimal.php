@@ -134,6 +134,21 @@ if (isset($_POST["submit"])) {
   <title>Animal Farm Pets</title>
 </head>
 <body>
+
+<!-- Menu Part -->
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+    </li>
+</ul>
+<!-- Menu End -->
+
 <div class= "container">
     <h1>Animal Farm Pets <small class="text-muted">Create a new entry for a new animal</small></h1>
         <?php

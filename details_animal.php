@@ -32,6 +32,20 @@
 </head>
 <body>
   
+  <!-- Menu Part -->
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+    </li>
+</ul>
+<!-- Menu End -->
+
 <h1>Animal Farm Pets <small class="text-muted">Details</small></h1>
 <div class="card" style="width: 18rem;">
   <img src="pictures/animals/<?= $row["picture"] ?>" class="card-img-top" alt="...">

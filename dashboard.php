@@ -17,6 +17,21 @@
   <title>Simple Page</title>
 </head>
 <body>
+  
+<!-- Menu Part -->
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+    </li>
+</ul>
+<!-- Menu End -->
+
  <div class="container">
         <button type="button" class="btn btn-primary">Edit Animals</button>
         <button type="button" class="btn btn-primary">See users</button>
