@@ -34,7 +34,7 @@
   
 <h1>Animal Farm Pets <small class="text-muted">Details</small></h1>
 <div class="card" style="width: 18rem;">
-  <img src="pictures/<?= $row["picture"] ?>" class="card-img-top" alt="...">
+  <img src="pictures/animals/<?= $row["picture"] ?>" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="card-text">
         <ul class="list-group list-group-flush">

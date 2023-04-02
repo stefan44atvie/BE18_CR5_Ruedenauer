@@ -87,12 +87,12 @@ if (isset($_POST["submit"])) {
 
     try {
         if(!$error){
+            // $sql1 = "INSERT INTO `pets`(`name`, `age`, `description`, `fk_animal_type_id`, `fk_breed_id`, `fk_vaccination_id`, `fk_size_id`, `fk_status_id`) 
+            // VALUES ('$name', '$age', '$description', '$animaltype', '$breed_name', '$vaccination', '$animal_size', '$animal_status') ";
             $sql1 = "INSERT INTO `pets`(`name`, `picture`, `age`, `description`, `fk_animal_type_id`, `fk_breed_id`, `fk_vaccination_id`, `fk_size_id`, `fk_status_id`) 
             VALUES ('$name', '$picture->fileName', '$age', '$description', '$animaltype', '$breed_name', '$vaccination', '$animal_size', '$animal_status') ";
-         
-            // $res = mysqli_query($connect, $sql1);
-            // var_dump($res);
-            die();
+            $res = mysqli_query ($connect, $sql1);
+
             if($res){
               $errType = "success";
               $errMsg = "Erfolgreich gespeichert!!";
@@ -115,29 +115,6 @@ if (isset($_POST["submit"])) {
     }
       
     }
-
-
-// $sql="select pets.pet_id, pets.picture, pets.size, pets.size, animal_type.animal_type, pets.size, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_size from pets
-//     inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
-//     inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
-//     inner join animal_size on pets.fk_size_id = animal_size.size_id
-//     inner join animal_status on pets.fk_status_id = animal_status.animalstatus_id
-//     inner join breed on pets.fk_breed_id = breed.breed_id";
-    
-//     $result = mysqli_query ($connect, $sql);
-//     $row=mysqli_fetch_assoc($result);
-
-//     function cleanInput($param){
-//         $clean = trim($param);
-//         $clean = strip_tags($param);
-//         $clean = htmlspecialchars($param);
-
-//         return $clean;
-//       }
-//       $nameError = $ageError = $typeError = $descriptionError = $vaccError = $sizeError = $statusError = $breedError  = 
-//       $name = $size = $animal_type = $description = $vacc_text = $animal_size = $animal_status = $breed_name ="";
-
-    
 
 ?>
 
