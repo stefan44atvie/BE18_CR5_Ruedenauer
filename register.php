@@ -4,14 +4,14 @@
 
 
         // wenn user oder adm bereits angemeldet sind, werden diese auf Unterseiten umgeleitet
-    //   session_start();
-     
-    //     if(isset($_SESSION["user"])){
-    //         header("Location: userhome.php");
-    //     }
-    //     if(isset($_SESSION["adm"])){
-    //         header("Location: dashboard.php");
-    //     }
+        session_start();
+
+        if(isset($_SESSION["user"])){
+          header("Location: userhome.php");
+        }
+        if(isset($_SESSION["adm"])){
+          header("Location: dashboard.php");
+        }
       function cleanInput($param){
         $clean = trim($param);
         $clean = strip_tags($param);

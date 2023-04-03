@@ -1,12 +1,12 @@
 <?php
     session_start();
 
-    // if(isset($_SESSION["user"])){
-    //   header("Location: userhome.php");
-    // }
-    // if(isset($_SESSION["adm"])){
-    //   header("Location: dashboard.php");
-    // }
+    if(isset($_SESSION["user"])){
+      header("Location: userhome.php");
+    }
+    if(isset($_SESSION["adm"])){
+      header("Location: dashboard.php");
+    }
 
 require_once "components/db_connect.php";
 
@@ -44,8 +44,9 @@ require_once "components/db_connect.php";
             $result = mysqli_query($connect, $sql);
             $count = mysqli_num_rows($result);
             $row = mysqli_fetch_assoc($result);
+            
             if($count == 1){
-                if($row["status"] =="adm"){
+                if($row["status"] =="admin"){
                   $_SESSION["admin"] = $row["id"];
                   header ("Location: dashboard.php"); 
                 }else{
@@ -115,6 +116,6 @@ require_once "components/db_connect.php";
 
 
   <noscript>Your browser don't support JavaScript!</noscript>
-  <script src="./scripts.js"></script>
+  <script src="js/bootstrap.js"></script>
 </body>
 </html>

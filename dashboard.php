@@ -1,5 +1,16 @@
 <?php
-// test 1
+    session_start();
+
+    // if(isset($_SESSION["user"])){
+    //   header("Location: userhome.php");
+    // }
+    if(isset($_SESSION["admin"])){
+      header("Location: dashboard.php");
+    }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
