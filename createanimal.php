@@ -136,7 +136,7 @@ if (isset($_POST["submit"])) {
   <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
-  <title>Animal Farm Pets</title>
+  <title>animal Farm Pets</title>
 </head>
 <body>
 
@@ -144,6 +144,9 @@ if (isset($_POST["submit"])) {
 <ul class="nav justify-content-center">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="home.php">Available animals</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>

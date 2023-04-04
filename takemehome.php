@@ -3,8 +3,22 @@
 
     session_start();
 
-    $id = $_GET["pet_id"];
+    $id = $_GET["takeme"];
     
+//     if(isset($_GET["takeme"])){
+//         $id1=$_GET["takeme"];
+
+//         if(!$error){
+//             $sql2 = "INSERT INTO `pets`(`fk_status_id`) VALUES ('2') where pet_id = $id1";
+//             $res = mysqli_query ($connect, $sql2);
+
+//         }else{
+//             echo "Nothing";
+//         }
+
+//    }
+
+
     $sql = "select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
     inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
     inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
@@ -16,17 +30,10 @@
     $result = mysqli_query($connect,$sql);
     $row = mysqli_fetch_assoc($result);
 
+               
     
-    if(isset($_POST["submit"])){
-        $id1=$_GET["takeme"];
 
-             $sql2 = "INSERT INTO `pets` (`fk_status_id`) VALUES ('2') where id = $id";
-             $res = mysqli_query($connect, $sql2);
-             
-             // header("Location: userhome.php");
-     }
-     
-
+    
 
 ?>
 
@@ -82,10 +89,8 @@
         </ul>
     </p>
   </div>
-  <a href="home.php" class="btn btn-primary" role="button" data-bs-toggle="button">Back</a>
-  <form method="POST">
-  <input type="submit" class="form-control" name="submit" value="Take me home">
-</form>
+  <a href="seeanimals.php" class="btn btn-primary" role="button" data-bs-toggle="button">Back</a>
+  <a href='details_animal.php?takeme=<?=$row["pet_id"]?>' class='btn btn-primary'>Take me Home</a>
 
 </div>
 

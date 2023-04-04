@@ -25,14 +25,17 @@
   <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
-  <title>Simple Page</title>
+  <title>animal Farm Pets</title>
 </head>
 <body>
   
 <!-- Menu Part -->
-  <ul class="nav justify-content-center">
+<ul class="nav justify-content-center">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="home.php">Available animals</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
@@ -44,10 +47,7 @@
 <!-- Menu End -->
 
  <div class="container">
-        <button type="button" class="btn btn-primary">Edit Animals</button>
-        <button type="button" class="btn btn-primary">See users</button>
-        <button type="button" class="btn btn-primary"><a href="seeanimals.php">see animals</a></button>
-        <button type="button" class="btn btn-primary">Edit users</button>
+        <a href='createanimal.php' class='btn btn-warning'>Create animal</a>
         <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
         <?php
           $name = $_SESSION['name'];

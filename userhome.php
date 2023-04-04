@@ -33,11 +33,26 @@
   <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
-  <title>Simple Page</title>
+  <title>animal Farm Pets</title>
 </head>
 <body>
  
-<!-- test -->
+<!-- Menu Part -->
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="home.php">Available animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="register.php">Register</a>
+    </li>
+</ul>
+<!-- Menu End -->
 
 <div class="container">
   <table class="table table-striped thead-dark w-75">

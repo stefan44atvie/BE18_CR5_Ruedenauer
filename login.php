@@ -48,11 +48,14 @@ require_once "components/db_connect.php";
             if($count == 1){
                 if($row["status"] =="admin"){
                   $_SESSION["admin"] = $row["user_id"];
+
                   header ("Location: dashboard.php"); 
                   
                 }else{
                   $_SESSION["user"] =$row["user_id"];
                   header ("Location: userhome.php");
+                  
+                  ;
                 }
 
             }
@@ -76,7 +79,7 @@ require_once "components/db_connect.php";
  
   <!-- CSS Files Links -->
   <link rel="stylesheet" href="css/bootstrap.css">
-
+  <title>animal Farm Pets</title>
   <!-- Title -->
 </head>
 <body>

@@ -1,5 +1,9 @@
 <?php 
     session_start();
+
+    if(!isset($_SESSION["user"])&&!isset($_SESSION["admin"])){
+        header("Location: login.php");
+      }
     require_once "components/db_connect.php";
 
     $sql="select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
@@ -7,7 +11,7 @@
     inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
     inner join animal_size on pets.fk_size_id = animal_size.size_id
     inner join animal_status on pets.fk_status_id = animal_status.animalstatus_id
-    inner join breed on pets.fk_breed_id = breed.breed_id";
+    inner join breed on pets.fk_breed_id = breed.breed_id where animal_status.animalstatus_id=1";
     $result = mysqli_query ($connect, $sql);
   
     $row=mysqli_fetch_assoc($result);
@@ -36,12 +40,12 @@
                                     <li class='list-group-item '><b>Description</b>: {$row['description']}</li>
                                     <li class='list-group-item '><b>Size</b>: {$row['size']}</li>
                                     <li class='list-group-item '><b>Vaccination status</b>: {$row['vacc_text']}</li>
-                                    <li class='list-group-item '><b>Vaccination status</b>: {$row['vacc_text']}</li>
 
                                 </ul>
                     </div>                    
                   
                   <a href='details_animal.php?pet_id={$row["pet_id"]}' class='btn btn-primary'>Details</a>
+
                 </div>
             </div>  
         </div>
@@ -55,7 +59,6 @@
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,12 +72,12 @@
   <link rel="stylesheet" href="css/bootstrap.css">
 
   <!-- Title -->
-  <title>Animal Pet Farm</title>
+  <title>animal Farm Pets</title>
 </head>
 <body>
 
 <!-- Menu Part -->
-<ul class="nav justify-content-center">
+        <ul class="nav justify-content-center">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
     </li>
@@ -92,7 +95,7 @@
 
     <div class="container " style="margin-left:10px;">
         <h1 class="text-center"> Animal Pet Farm <small class="text-muted">Is this pet maybe yours soon?</small></h1>
-
+        <p> Here are our animals, who are still wating for their forever home.
         <div class="d-flex flex-wrap">
             <?php
                 echo $layout;
