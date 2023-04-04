@@ -57,10 +57,7 @@
         <a href='listanimals.php' class='btn btn-warning'>List all animals</a>
         <a href='listusers.php' class='btn btn-warning'>List all users</a>
         <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
-        <?php
-          $name = $_SESSION['name'];
-          echo $name;
-?>
+        
 </div>
 
 

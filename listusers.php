@@ -3,37 +3,28 @@
     if(!isset($_SESSION["admin"])){
         header("Location: login.php");
       }
-
     require "components/db_connect.php";
 
-    $sql="select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
-    inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
-    inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
-    inner join animal_size on pets.fk_size_id = animal_size.size_id
-    inner join animal_status on pets.fk_status_id = animal_status.animalstatus_id
-    inner join breed on pets.fk_breed_id = breed.breed_id";
+    $sql="select * from users";
     $result = mysqli_query ($connect, $sql);
     $id=$_SESSION["id"];
 
     $layout ="";
-    $layout2="";
 
     if (mysqli_num_rows ($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
             
               $layout2 .= "
                         <td>
-                        <a href='details_animal.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
-                        <a href='update_animal.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
-                        <a href='delete.php?animalid={$row["id"]}' class='btn btn-danger'>Delete</a>
+                            <a href='detail_user.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
+                            <a href='update_user.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
+                            <a href='delete.php?userid={$row["id"]}' class='btn btn-danger'>Delete</a>
                         </td>
-                        <td><img src='pictures/animals/" .$row['picture']."' width='100' alt='Card image cap'>
-                        <td>{$row["name"]}</td>
-                        <td>{$row["animal_type"]}</td>
-                        <td>{$row["breed_name"]}</td>
-                        <td>{$row["age"]}</td>
-                        <td>{$row["description"]}</td>
-                        <td>{$row["vacc_text"]}</td>
+                        <td><img src='pictures/" .$row['picture']."' width='100' alt='Card image cap'>
+                        <td>{$row["firstname"]} {$row["lastname"]}</td>
+                        <td>{$row["email"]}</td>
+                        <td>{$row["address"]}</td>
+                        <td>{$row["phone"]}</td>
                         </tr>
                                 
                                 ";
@@ -43,7 +34,7 @@
     };
 
 ?>
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
  
@@ -102,12 +93,10 @@
                         <th scope='col'>Options</th>    
                         <th scope='col'>Bild</th>
                         <th scope='col'>Name</th>
-                        <th scope='col'>Tierart</th>
-                        <th scope='col'>Rasse</th>
-                        <th scope='col'>Alter</th>
-                        <th scope='col'>Description</th>
-                        <th scope='col'>Vaccination</th>
-
+                        <th scope='col'>email</th>
+                        <th scope='col'>Adress</th>
+                        <th scope='col'>Phone</th>
+                        
                         </tr>
                     </thead>
                     <tbody>
