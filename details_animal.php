@@ -18,12 +18,15 @@
 
     
     if(isset($_POST["submit"])){
-        $id1=$_GET["takeme"];
+        $id1=$_GET["pet_id"];
+        $status = 2;
+        // var_dump($id1);
+        // die();
 
-             $sql2 = "INSERT INTO `pets` (`fk_status_id`) VALUES ('2') where id = $id";
+             $sql2 = "INSERT INTO pets (`fk_status_id`) VALUES ('$status') where id = $id1";
              $res = mysqli_query($connect, $sql2);
              
-             // header("Location: userhome.php");
+             header("Location: userhome.php");
      }
      
 
