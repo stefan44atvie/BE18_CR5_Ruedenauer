@@ -17,9 +17,9 @@ require_once "components/db_connect.php";
 
         return $clean;
       }
+      $error = false;
 
     if(isset($_POST["login"])){
-        $error = false;
 
         $email = cleanInput($_POST["email"]);
         $password = cleanInput($_POST["password"]);
@@ -89,7 +89,19 @@ require_once "components/db_connect.php";
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="home.php">available animals</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=2" id="senior">Senior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
@@ -103,10 +115,22 @@ require_once "components/db_connect.php";
 <form class="w-50" method="POST" action="<?= htmlspecialchars($_SERVER['SCRIPT_NAME'])?>" enctype="multipart/form-data">
 
       <h1>Animal Farm Pets <small class="text-muted">Your Login</small></h1>
+      <?php
+              if(isset($errMsg)){
+              ?>
+                <div class = "alert alert-<?= $errType ?>" role="alert">
+                  <?= $errMsg ?> 
+                  <?= $uploadError ?> 
+
+                </div> 
+                
+                <?php 
+              }
+              ?>
                   <input type="email" placeholder="Bitte Ihre email-Adresse einfügen" class="form-control" name="email" value="<?= $email ?>">
                   <span class="text-danger"><?= $emailError ?></span class="text-danger">
                   <input type="password" placeholder="Bitte Passwort einfügen" class="form-control" name= "password">
-                  <span class="text-danger"><?= $passwordError ?></span class="text-danger">
+                  <span class="text-danger"><?= $passError ?></span class="text-danger">
                   <input type="submit" class="form-control" name="login" value="Einloggen">
 
 

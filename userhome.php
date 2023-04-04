@@ -4,17 +4,66 @@
 
   //   var_dump($_SESSION);
   // die();
-    if (isset($_SESSION["admin"])) {
-      header("Location: dashboard.php");
-      exit;
+  if (isset($_SESSION["admin"])) {
+    header("Location: dashboard.php");
   }
-  // if session is not set this will redirect to login page
-  // if (!isset($_SESSION['admin']) && !isset($_SESSION['user'])) {
-  //     header("Location: login.php");
-  //     exit;
+  //  elseif (!isset($_SESSION["user"])) {
+  //   header("Location: login.php");
   // }
+?>
+<?php
+require "components/db_connect.php";
 
-    
+$sql = "SELECT * FROM `users` WHERE user_id=" . $_SESSION["user"];
+$result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_assoc($result);
+$id = $_SESSION["user"];
+
+$body = "";
+$body .= "
+  <div class='container opacity_dark50 box_top5'>
+    <div class='card w-100' style='width: 18rem;'>
+        <div class='card-header'>
+            <h1 class='titletext'>Hier ist dein Userprofil</h1>
+            <a class='profiltext'>Hallo {$row["firstname"]}</a>
+        </div>
+        <img class='card-img-top ' src='pictures/" . $row['picture'] . "' width='150' alt='Card image cap'>
+        <div class='card-body'>
+        <h5 class='card-title'> </h5>
+        <p class='card-text'> <br>
+        <table class='table table-info table-striped w-75'>
+            <tbody>
+                <tr>
+                    <td>Name: </td>
+                    <td>{$row["firstname"]} {$row["lastname"]}</td>
+                </tr>
+                <tr>
+                    <td>email: </td>
+                    <td> {$row["email"]}</td>
+                </tr>
+                <tr>
+                <td>Adress: </td>
+                <td>{$row["address"]} </td>
+                </tr>
+                <tr>
+                    <td>Phone: </td>
+                    <td> {$row["phone"]}</td>
+                </tr>
+            
+
+            </tbody>
+        </table>
+        
+        <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
+
+        </div>
+    </div>
+  </div>
+  ";
+
+
+
+
 
 ?>
 
@@ -43,10 +92,19 @@
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="home.php">Available animals</a>
+        <a class="nav-link active" aria-current="page" href="home.php">available animals</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=2" id="senior">Senior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
@@ -54,33 +112,10 @@
 </ul>
 <!-- Menu End -->
 
-<div class="container">
-  <table class="table table-striped thead-dark w-75">
-      <thead>
-        <tr>
-        <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
-
-          <th scope="col">Bild</th>
-          <th scope="col">Name</th>
-          <th scope="col">Alter</th>
-          <th scope="col">Tierart</th>
-          <th scope="col">Beschreibung</th>
-          <th scope="col">Impfstatus</th>
-          <th scope="col">Größe</th>
-          <th scope="col">Zu haben?</th>
-          <th scope="col">Rasse</th>
-
-        </tr>
-      </thead>
-      <tbody>
-          
-            
-      </tbody>
-    </table>
-  </div>
-
   <div class="container">
-    
+    <?php
+    echo $body;
+    ?>
 </div>
 
 

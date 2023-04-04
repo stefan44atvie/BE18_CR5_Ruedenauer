@@ -88,6 +88,15 @@
         <a class="nav-link" href="login.php">Login</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=2" id="senior">Senior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>

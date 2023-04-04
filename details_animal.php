@@ -17,16 +17,76 @@
     $row = mysqli_fetch_assoc($result);
 
     
-    if(isset($_POST["submit"])){
-        $id1=$_GET["pet_id"];
-        $status = 2;
-        // var_dump($id1);
-        // die();
+    if (isset($_GET["submit"])) {
+      $name = $_POST["name"];
+      $id1=$_GET["pet_id"];
+      $status = 2;
 
-             $sql2 = "INSERT INTO pets (`fk_status_id`) VALUES ('$status') where id = $id1";
-             $res = mysqli_query($connect, $sql2);
+  
+      $error = false;
+  
+      try {
+          if(!$error){
+            $sql2 = "INSERT INTO `pets` (`fk_status_id`) VALUES ('$status') where pet_id = $id1";
+
+              $res = mysqli_query ($connect, $sql2);
+  
+              if($res){
+                $errType = "success";
+                $errMsg = "Erfolgreich gespeichert!!";
+                $text = "";
+              }else{
+                $errType = "danger";
+                $errMsg = "something went wrong, try again later!!";
+                    
+              }
+              
+            
+          }
+         } catch (Exception $e){
+         {
+          // echo $e;
+          $errType = "danger";
+          $errMsg = "Dieser Eintrag ist leider schon vorhanden!";
+         }
+  
+      }
+      //   echo "Danke für die Eingabe";
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // if(isset($_POST["submit"])){
+    //     $id1=$_GET["pet_id"];
+    //     $status = 2;
+    //     // var_dump($id1);
+    //     // die();
+
              
-             header("Location: userhome.php");
+        
+        
+        
+        
+        
+        
+    //     $sql2 = "INSERT INTO pets (`fk_status_id`) VALUES ('$status') where pet_id = $id1";
+    //          $res = mysqli_query($connect, $sql2);
+             
+    //          header("Location: userhome.php");
      }
      
 
@@ -62,6 +122,15 @@
         <a class="nav-link" href="login.php">Login</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=2" id="senior">Senior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>
@@ -86,7 +155,7 @@
     </p>
   </div>
   <a href="home.php" class="btn btn-primary" role="button" data-bs-toggle="button">Back</a>
-  <form method="POST">
+  <form method="GET">
   <input type="submit" class="form-control" name="submit" value="Take me home">
 </form>
 

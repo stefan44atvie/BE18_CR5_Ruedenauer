@@ -3,7 +3,7 @@ require_once "components/db_connect.php";
 require_once "components/animal_upload.php";
 
 session_start();
-if(!isset($_SESSION["adm"])){
+if(!isset($_SESSION["admin"])){
     header("Location: index.php");
   }
 
@@ -146,10 +146,19 @@ if (isset($_POST["submit"])) {
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="home.php">Available animals</a>
+        <a class="nav-link active" aria-current="page" href="home.php">available animals</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=2" id="senior">Senior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
