@@ -16,9 +16,9 @@
             
               $layout2 .= "
                         <td>
-                            <a href='detail_user.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
-                            <a href='update_user.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
-                            <a href='delete.php?userid={$row["id"]}' class='btn btn-danger'>Delete</a>
+                            <a href='detail_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
+                            <a href='update_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
+                            <a href='delete.php?userid={$row["user_id"]}' class='btn btn-danger'>Delete</a>
                         </td>
                         <td><img src='pictures/" .$row['picture']."' width='100' alt='Card image cap'>
                         <td>{$row["firstname"]} {$row["lastname"]}</td>

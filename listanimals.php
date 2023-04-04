@@ -23,9 +23,9 @@
             
               $layout2 .= "
                         <td>
-                        <a href='details_animal.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
-                        <a href='update_animal.php?id={$row["id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
-                        <a href='delete.php?animalid={$row["id"]}' class='btn btn-danger'>Delete</a>
+                        <a href='details_animal.php?pet_id={$row["pet_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
+                        <a href='update_animal.php?pet_id={$row["pet_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
+                        <a href='delete.php?animalid={$row["pet_id"]}' class='btn btn-danger'>Delete</a>
                         </td>
                         <td><img src='pictures/animals/" .$row['picture']."' width='100' alt='Card image cap'>
                         <td>{$row["name"]}</td>
