@@ -9,7 +9,7 @@
         if(isset($_SESSION["user"])){
           header("Location: userhome.php");
         }
-        if(isset($_SESSION["adm"])){
+        if(isset($_SESSION["admin"])){
           header("Location: dashboard.php");
         }
       function cleanInput($param){

@@ -2,6 +2,11 @@
 require_once "components/db_connect.php";
 require_once "components/animal_upload.php";
 
+session_start();
+if(!isset($_SESSION["adm"])){
+    header("Location: index.php");
+  }
+
 //FOR select button Animal Type
 $sql_antype_select = "Select * from `animal_type`";
 $result1 = mysqli_query($connect, $sql_antype_select);
@@ -150,6 +155,7 @@ if (isset($_POST["submit"])) {
 <!-- Menu End -->
 
 <div class= "container">
+    
     <h1>Animal Farm Pets <small class="text-muted">Create a new entry for a new animal</small></h1>
         <?php
                 if(isset($errMsg)){

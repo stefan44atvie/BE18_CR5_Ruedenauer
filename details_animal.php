@@ -1,6 +1,8 @@
 <?php
     require_once "components/db_connect.php";
 
+    session_start();
+
     $id = $_GET["pet_id"];
     
     $sql = "select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets

@@ -4,7 +4,7 @@
 
   //   var_dump($_SESSION);
   // die();
-    if (isset($_SESSION['adm'])) {
+    if (isset($_SESSION["admin"])) {
       header("Location: dashboard.php");
       exit;
   }

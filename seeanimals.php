@@ -1,5 +1,10 @@
 <?php 
     session_start();
+
+    if (isset($_SESSION["admin"])) {
+      header("Location: dashboard.php");
+      exit;
+  }
     require_once "components/db_connect.php";
 
     $sql="select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets

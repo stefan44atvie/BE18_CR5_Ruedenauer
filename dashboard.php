@@ -1,12 +1,12 @@
 <?php
     session_start();
 
-    // if(isset($_SESSION["user"])){
-    //   header("Location: userhome.php");
-    // }
-    if(isset($_SESSION["admin"])){
-      header("Location: dashboard.php");
+    if(isset($_SESSION["user"])){
+      header("Location: userhome.php");
     }
+    // if(isset($_SESSION["admin"])){
+    //   header("Location: dashboard.php");
+    // }
 
 
 
@@ -48,6 +48,11 @@
         <button type="button" class="btn btn-primary">See users</button>
         <button type="button" class="btn btn-primary"><a href="seeanimals.php">see animals</a></button>
         <button type="button" class="btn btn-primary">Edit users</button>
+        <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
+        <?php
+          $name = $_SESSION['name'];
+          echo $name;
+?>
 </div>
 
 

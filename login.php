@@ -4,7 +4,7 @@
     if(isset($_SESSION["user"])){
       header("Location: userhome.php");
     }
-    if(isset($_SESSION["adm"])){
+    if(isset($_SESSION["admin"])){
       header("Location: dashboard.php");
     }
 
@@ -47,10 +47,11 @@ require_once "components/db_connect.php";
             
             if($count == 1){
                 if($row["status"] =="admin"){
-                  $_SESSION["admin"] = $row["id"];
+                  $_SESSION["admin"] = $row["user_id"];
                   header ("Location: dashboard.php"); 
+                  
                 }else{
-                  $_SESSION["user"] =$row["id"];
+                  $_SESSION["user"] =$row["user_id"];
                   header ("Location: userhome.php");
                 }
 
