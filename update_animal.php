@@ -54,7 +54,7 @@ if (mysqli_num_rows($result) == 1) {
     $name = $data['name'];
     $age = $data['age'];
     $description = $data['description'];
-    $picture = $_POST['picture'];
+    // $picture = $_POST['picture'];
     $picture = $data['picture'];
     $type = $_POST["animaltype"];
     $breed = $_POST["breed"];
@@ -78,16 +78,14 @@ if (mysqli_num_rows($result) == 1) {
         $picture = $picturearray->fileName;
 
         if ($picturearray->error === 0) {
-            ($_POST['picture'] == "avatar.jpg") ?: unlink("pictures/animals/{$_POST['picture']}");
-            $sqlupdate = "UPDATE `pets` SET `name`='$name', `age`='$age', `picture`='$picturearray->fileName',`description` = '$description', fk_animal_type_id`='$type', `fk_breed_id` = '$breed', `fk_vaccination_id`= '$vacc', `fk_size_id`= '$ansize', `fk_status_id`= '$anstatus' WHERE pet_id = $id";
+            ($_POST['picture'] == "animal.jpg") ?: unlink("pictures/animals/{$_POST['picture']}");
+            $sqlupdate = "UPDATE `pets` SET `name`='$name', `age`='$age', `description` = '$description', `fk_animal_type_id`='$type', `fk_breed_id` = '$breed', `fk_vaccination_id`= '$vacc',`fk_size_id`= '$ansize', `fk_status_id`= '$anstatus', `picture`='$picturearray->fileName'
+            WHERE pet_id = $id";
             // `picture`='$picturearray->fileName',
-
-            
-            // ($_POST['picture'] == "avatar.jpg") ?: unlink("pictures/animals/{$_POST['picture']}");
-            // $sqlupdate = "UPDATE `pets` SET `name`='$name',`picture`='$picturearray->fileName', `age`='$age', `description` = '$description', `fk_animal_type_id`='$type', `fk_breed_id` = '$breed', `fk_vaccination_id`= '$vacc', `fk_size_id`= '$ansize', `fk_status_id`= '$anstatus'  WHERE pet_id = $id";
         } else {
             $sqlupdate = "UPDATE `pets` SET `name`='$name', `age`='$age', `description` = '$description',`fk_animal_type_id`='$type', `fk_breed_id` = '$breed', `fk_vaccination_id`= '$vacc',`fk_size_id`= '$ansize', `fk_status_id`= '$anstatus'  
             WHERE pet_id = $id";
+            
         }
 
 
