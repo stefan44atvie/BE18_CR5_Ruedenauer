@@ -132,10 +132,7 @@ if (mysqli_num_rows($result) == 1) {
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
-    </li>
-    <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>

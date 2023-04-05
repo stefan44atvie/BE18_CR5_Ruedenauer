@@ -8,7 +8,6 @@
     
     if($_GET["age"] == 2){
         //wenn GET gleich 2 (in diesem Falle sollen hier nur alle Tier über 8 angezeigt werden - funktioniert soweit schon)
-        echo "Das ist ein Test";
 
         $sql="select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
         inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
@@ -62,7 +61,6 @@
         };
     }elseif($_GET["age"] == 4){
         //hier sollen nur alle jungen Tier bis 8 angezeigt werden.....
-        echo "das hat geklappt";
         $sql="select pets.pet_id, pets.picture, pets.name, pets.age, animal_type.animal_type, pets.description, vaccination.vacc_text, animal_size.size, animal_status.animal_status, breed.breed_name from pets
         inner join animal_type on pets.fk_animal_type_id = animal_type.type_id
         inner join vaccination on pets.fk_vaccination_id = vaccination.vacc_id
@@ -201,10 +199,7 @@
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
-    </li>
-    <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>

@@ -25,7 +25,7 @@
                         <td>
                         <a href='details_animal.php?pet_id={$row["pet_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
                         <a href='update_animal.php?pet_id={$row["pet_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
-                        <a href='delete.php?animalid={$row["pet_id"]}' class='btn btn-danger'>Delete</a>
+                        <a href='delete_animal.php?animalid={$row["pet_id"]}' class='btn btn-danger'>Delete</a>
                         </td>
                         <td><img src='pictures/animals/" .$row['picture']."' width='100' alt='Card image cap'>
                         <td>{$row["name"]}</td>
@@ -77,10 +77,7 @@
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
-    </li>
-    <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>
@@ -94,7 +91,7 @@
 </div>
 
     <div class="container " style="margin-left:10px;">
-        <h1 class="text-center"> Animal Pet Farm <small class="text-muted">Is this pet maybe yours soon?</small></h1>
+        <h1 class="text-center"> Animal Pet Farm <small class="text-muted">List of all our animals</small></h1>
 
         <table class='table'>
                     <thead>

@@ -16,15 +16,17 @@
             
               $layout2 .= "
                         <td>
-                            <a href='detail_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
+                            <a href='details_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
                             <a href='update_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
-                            <a href='delete.php?userid={$row["user_id"]}' class='btn btn-danger'>Delete</a>
+                            <a href='delete_user.php?userid={$row["user_id"]}' class='btn btn-danger'>Delete</a>
                         </td>
                         <td><img src='pictures/" .$row['picture']."' width='100' alt='Card image cap'>
                         <td>{$row["firstname"]} {$row["lastname"]}</td>
                         <td>{$row["email"]}</td>
                         <td>{$row["address"]}</td>
                         <td>{$row["phone"]}</td>
+                        <td>{$row["status"]}</td>
+
                         </tr>
                                 
                                 ";
@@ -68,10 +70,7 @@
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
-    </li>
-    <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>
@@ -85,7 +84,7 @@
 </div>
 
     <div class="container " style="margin-left:10px;">
-        <h1 class="text-center"> Animal Pet Farm <small class="text-muted">Is this pet maybe yours soon?</small></h1>
+        <h1 class="text-center"> Animal Pet Farm <small class="text-muted">List of all registered users</small></h1>
 
         <table class='table'>
                     <thead>
@@ -96,6 +95,7 @@
                         <th scope='col'>email</th>
                         <th scope='col'>Adress</th>
                         <th scope='col'>Phone</th>
+                        <th scope='col'>Status</th>
                         
                         </tr>
                     </thead>

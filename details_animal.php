@@ -111,7 +111,7 @@
 <body>
   
   <!-- Menu Part -->
-  <ul class="nav justify-content-center">
+<ul class="nav justify-content-center">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
     </li>
@@ -127,15 +127,19 @@
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
-    </li>
-    <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>
 <!-- Menu End -->
 
+<div class="container">
+        <a href='createanimal.php' class='btn btn-warning'>Create animal</a>
+        <a href='listanimals.php' class='btn btn-warning'>List all animals</a>
+        <a href='listusers.php' class='btn btn-warning'>List all users</a>
+        <a href='logout.php?logout' class='btn btn-warning'>Logout</a>
+        
+</div>
 <h1>Animal Farm Pets <small class="text-muted">Details</small></h1>
 <div class="card" style="width: 18rem;">
   <img src="pictures/animals/<?= $row["picture"] ?>" class="card-img-top" alt="...">
