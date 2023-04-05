@@ -39,7 +39,7 @@ while($row2 = mysqli_fetch_assoc($all_vacc)){
     $options_vacc .= "<option value='{$row2["vacc_id"]}'>{$row2["vacc_text"]}</option>";
 }
 while($row3 = mysqli_fetch_assoc($all_size)){
-    $options_size .= "<option value='{$row3["size_id"]}'>{$row3["size"]}</option>";
+    $options_size .= "<option class= value='{$row3["size_id"]}'>{$row3["size"]}</option>";
 }
 while($row4 = mysqli_fetch_assoc($all_status)){
     $options_status .= "<option value='{$row4["animalstatus_id"]}'>{$row4["animal_status"]}</option>";
