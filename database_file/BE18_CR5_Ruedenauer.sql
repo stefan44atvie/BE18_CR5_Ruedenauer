@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 01. Apr 2023 um 21:50
+-- Erstellungszeit: 05. Apr 2023 um 15:10
 -- Server-Version: 10.4.27-MariaDB
 -- PHP-Version: 8.2.0
 
@@ -133,10 +133,18 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`pet_id`, `name`, `picture`, `age`, `description`, `fk_animal_type_id`, `fk_breed_id`, `fk_vaccination_id`, `fk_size_id`, `fk_status_id`) VALUES
-(1, 'aladine', '', 9, 'ganz lieber', 1, 2, 1, 2, 1),
-(2, 'alfred', '', 2, '', 2, 9, 2, 1, 2),
-(3, 'catbum', '', 4, 'willfähig, treu', 2, 10, 2, 2, 2),
-(4, 'sina', '', 2, 'neugierig', 3, 8, 1, 2, 1);
+(12, 'Rudi', '6429ad24adf2e.jpeg', 2, 'Bird, which was given to us by a finder', 3, 7, 1, 1, 1),
+(14, 'Frederico', 'animal.jpg', 3, 'really nice little bird', 3, 7, 2, 1, 2),
+(15, 'Siluna', '642c606a6c6ce.jpeg', 11, 'our senior cat here at Animal Farn', 2, 3, 1, 2, 1),
+(16, 'wanda', 'animal.jpg', 3, 'our tortoise', 4, 5, 1, 2, 1),
+(18, 'Arlo', '642c804d9bbed.jpg', 12, 'HE is one of the most beautiful Dobermann dogs at our center', 1, 1, 1, 1, 2),
+(20, 'Rex', '642d6626292f0.jpg', 7, 'plays games loving HU', 2, 1, 1, 1, 1),
+(21, 'Flummy', '642c2b56ea1c6.jpg', 3, 'Flummi und Amalia (Protokollnummer: 1920534) sind im Herbst 2019 im Tierheim eingezogen. Bei den beiden scheuen Schönheiten handelt es sich um zwei Streunerkatzen, die bei Tierschutz Austria zueinander gefunden haben und seit diesem Zeitpunkt unzertrennlich sind. Für Flummi und Amalia sind ein geregelter Tagesablauf, ausreichend Rückzugsmöglichkeiten, Geduld bei der Eingewöhnung und die Möglichkeit auf Freigang unerlässlich', 2, 3, 1, 2, 1),
+(22, 'Anna', '642c2bdb958e6.jpg', 2, 'Menschen: freundlich nach Kennenlernphase Kinder: Teenager Hunde: ja Katzen: unbekannt Stubenrein: ja Leinenführigkeit: kennt noch kein Brustgeschirr Kennt Innenräume: ja Alleine bleiben: unbekannt Kann im Auto mitfahren: unbekannt Zuhause gesucht: ländlich, ruhig Haus mit Garten, gerne an der Seite eines Zweithundes', 4, 1, 1, 2, 1),
+(23, 'Toni', '642c2c4522514.jpg', 10, 'Das Geschwisterpaar Toni und Bommerle (Protokollnummer: 1620550) zählt zu unseren Langsitzern. Die beiden Fellnasen sind seit Herbst 2016 im Tierschutzhaus Vösendorf – Tierschutz Austria. Anfangs sind Toni und Bommerle skeptisch und brauchen Zeit und Geduld bei tierlieben Menschen, um Vertrauen zu fassen. Mit ausreichend Rückzugsmöglichkeiten', 2, 3, 1, 2, 1),
+(24, 'Charly', '642c2c984e6d4.jpg', 10, 'Menschen: freundlich nach Kennenlernphase Kinder: nein Hunde: ja Katzen: unbekannt Stubenrein: im Erlernen Leinenführigkeit: im Erlernen Kennt Innenräume: unbekannt Alleine bleiben: unbekannt Kann im Auto mitfahren: unbekannt Zuhause gesucht: ruhiges, kinderloses Zuhause mit viel Platz in eher ländlicher Umgebung', 1, 2, 1, 2, 1),
+(25, 'Smiley', '642c2d10588b8.jpg', 11, 'Menschen: freundlich  Kinder: größere Hunde: ja Katzen: unbekannt Stubenrein: ja Leinenführigkeit: ja Kennt Innenräume: unbekannt Alleine bleiben: unbekannt Kann im Auto mitfahren: unbekannt Zuhause gesucht: Stadtrand oder ruhiger,ohne Stufen', 1, 1, 1, 2, 1),
+(26, 'Lari', '642c854064415.jpg', 6, 'Menschen: freundlich Kinder: ab Teenager-Alter Hunde: ruhige Hunde ok Katzen: unbekannt Stubenrein: ja Leinenführigkeit: ja  Kennt Innenräume: ja  Alleine bleiben: unbekannt Kann im Auto mitfahren: ja Zuhause gesucht: mit Garten am Land', 1, 2, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -161,21 +169,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `address`, `phone`, `picture`, `status`) VALUES
-(1, 'hallo', 'hallo', 'we@we.de', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'uewheiwhi', '7234782843', '', 'user'),
-(2, 'weber', 'weber', 'we@alfa.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'webernel', '6372843249', '', 'user'),
-(3, 'stefan', 'rette', 'rette@stefan.at', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '7234791', 'avatar.jpg', 'user'),
-(4, 'ter', 'terrk', 'get@what.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '7234791', 'avatar.jpg', 'user'),
-(5, 'stefan', 'halool', 'ste@ste.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'wefieofe', '63278', 'avatar.jpg', 'user'),
-(6, 'stefan', 'tarz', 'ste@web.de', 'd84eefc1ae267106ef600763e9d5501de635b2296724f36c5477958f1d511be5', 'hallollooi', '732746279', 'avatar.jpg', 'user'),
-(7, 'hallo', 'weber', 'uzui@web.at', 'e71eae0a9fc1db629c50ca3d98fe1f78af818ad96c97d5dbb9f2c66de2c019e2', 'hducisahcc', '88e28479', 'avatar.jpg', 'user'),
-(8, 'stefan', 'test', 'test@test.de', '432761be2fe9e4bc7164f7cfd8038cb3776a1a8bec675e1e7785c77cd6f29e06', 'gsvuavqugq', '772386424ß2', '../pictures/avatar.jpg', 'user'),
-(9, 'alfa', 'heys', 'tre@web.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '3572826', 'avatar.jpg', 'user'),
-(10, 'stefan', 'test', 'te@te.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'bhdibwq', '632662387', 'avatar.jpg', 'user'),
-(11, 'hat', 'ghat', 'hat@hat.at', '7762778da9400caae168204b08baae803510db4a977e2b72252c09eeda81bdee', 'gzdwzqgigz', '663626388', '642810fc2fe0a.jpg', 'user'),
-(12, 'stefan', 'ruedenauer', 'stefan@digitaleseele.at', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'jedleseer', '06644342127', 'avatar.jpg', 'user'),
-(13, 'halnt', 'herta', 'hert@hert.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weberlein', '3635278', '6428132545462.jpg', 'user'),
-(14, 'manfred', 'heller', 'manfred@heller.at', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'weberelein', '74389294298', 'avatar.jpg', 'user'),
-(15, 'stefan', 'ruede', 'stefan@ruedi.at', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '32324242', 'avatar.jpg', 'admin');
+(12, 'stefan', 'Ruedenauer', 'stefan@digitaleseele.at', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'jedleseer', '06644341127', '642d61e9b98fa.jpg', 'user'),
+(14, 'Manfred', 'Heller', 'manfred@heller.at', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'weberstraße', '74389294298', 'avatar.jpg', 'admin'),
+(16, 'stefan', 'alter', 'ruedi@ruedi.de', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '92494320', 'avatar.jpg', 'admin'),
+(20, 'Stefan', 'alter', 'web@love.at', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 'weber', '848038021', '642bfcdd764b0.jpg', 'user');
 
 -- --------------------------------------------------------
 
@@ -279,13 +276,13 @@ ALTER TABLE `breed`
 -- AUTO_INCREMENT für Tabelle `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT für Tabelle `vaccination`
