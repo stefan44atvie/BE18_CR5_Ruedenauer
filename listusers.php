@@ -17,7 +17,7 @@
               $layout2 .= "
                         <td>
                             <a href='details_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Details</a>
-                            <a href='update_user.php?id={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
+                            <a href='update_user.php?userid={$row["user_id"]}' class='btn btn-success' tabindex='-1' role='button' >Update</a>
                             <a href='delete_user.php?userid={$row["user_id"]}' class='btn btn-danger'>Delete</a>
                         </td>
                         <td><img src='pictures/" .$row['picture']."' width='100' alt='Card image cap'>
@@ -70,7 +70,10 @@
     <li class="nav-item">
         <a class="nav-link" href="displayanimals.php?age=4" id="senior">Junior animals</a>
     </li>
-     <li class="nav-item">
+    <li class="nav-item">
+        <a class="nav-link" href="displayanimals.php" id="senior">test</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
     </li>
 </ul>
